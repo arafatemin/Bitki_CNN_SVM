@@ -1,0 +1,74 @@
+{#https://medium.com/django-tr/bu-videomuzda-veritaban%C4%B1na-nas%C4%B1l-veri-ekleyece%C4%9Fimizi-g%C3%BCncelleyece%C4%9Fimizi-ve-listeleyebilece%C4%9Fimizi-32ebe5b9ab1f#}
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="main-wrapper">
+
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+
+                {% for message in messages %}
+                    {% if message %}
+                        <div class="alert alert-{{ message.tags }} text-center">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+
+
+
+
+                <div class="row">
+
+                    <div class="col-xl-12 mx-auto">
+                        <h6 class="mb-0 text-uppercase">Image Uploadify</h6>
+                        <hr/>
+                        <div class="card">
+                            <div class="card-body">
+{#                                <form action="{% url 'encrypt_file' %}" method="post" enctype="multipart/form-data">#}
+                                <form action="#" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <input class="btn btn-outline-primary" name="original_file" type="file" multiple>
+                                    <div class="text-end">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Your Messages Encrypted</h5>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <img src="" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
